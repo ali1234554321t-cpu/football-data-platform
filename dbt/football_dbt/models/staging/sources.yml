@@ -1,0 +1,19 @@
+version: 2
+
+sources:
+  - name: football_warehouse
+    database: football_dw
+    schema: public
+
+    tables:
+      - name: dim_date
+
+      - name: dim_league
+
+      - name: dim_team
+
+      - name: dim_player
+
+      - name: fact_fixtures
+
+      - name: fact_fixture_events

@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: fct_matches
+    description: "Analytics-ready football fixtures with league, date, home team, and away team details."
+
+    columns:
+      - name: fixture_key
+        description: "Warehouse surrogate key for the fixture."
+        tests:
+          - not_null
+          - unique
+
+      - name: fixture_id
+        description: "Source fixture identifier."
+        tests:
+          - not_null
+          - unique
+
+      - name: full_date
+        description: "Date of the fixture."
+        tests:
+          - not_null
+
+      - name: league_id
+        description: "Source league identifier."
+        tests:
+          - not_null
+
+      - name: home_team_id
+        description: "Source identifier of the home team."
+        tests:
+          - not_null
+
+      - name: away_team_id
+        description: "Source identifier of the away team."
+        tests:
+          - not_null
+
+  - name: fct_player_events
+    description: "Analytics-ready football events linked to fixtures and players."
+
+    columns:
+      - name: event_key
+        description: "Warehouse surrogate key for the event."
+        tests:
+          - not_null
+          - unique
+
+      - name: event_id
+        description: "Source event identifier."
+        tests:
+          - not_null
+          - unique
+
+      - name: fixture_id
+        description: "Fixture associated with the event."
+        tests:
+          - not_null
+
+      - name: full_date
+        description: "Date of the fixture containing the event."
+        tests:
+          - not_null
